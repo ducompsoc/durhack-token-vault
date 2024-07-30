@@ -1,0 +1,64 @@
+{
+  "name": "@durhack/token-vault",
+  "description": "JWT 'token vault' utility",
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "module": "./dist/index.js"
+    },
+    "./lib": {
+      "types": "./dist/lib.d.ts",
+      "import": "./dist/lib.js",
+      "module": "./dist/lib.js"
+    },
+    "./config-schema": {
+      "types": "./dist/config-schema.d.ts",
+      "import": "./dist/config-schema.js",
+      "module": "./dist/config-schema.js"
+    },
+    "./authority/*": {
+      "types": "./dist/authority/*.d.ts",
+      "import": "./dist/authority/*.js",
+      "module": "./dist/authority/*.js"
+    }
+  },
+  "scripts": {
+    "build": "tsup",
+    "prepublishOnly": "pnpm build",
+    "type-check": "tsc --noEmit",
+    "check": "biome check .",
+    "check:fix": "biome check --write .",
+    "test": "vitest run --silent",
+    "prebuild": "pnpm run type-check"
+  },
+  "keywords": [],
+  "author": "DU Computing Society",
+  "license": "LGPL-3.0-or-later",
+  "devDependencies": {
+    "@biomejs/biome": "^1.8.3",
+    "@types/node": "^22.0.0",
+    "tsup": "^8.2.3",
+    "tsx": "^4.16.2",
+    "typescript": "^5.5.4",
+    "vitest": "^2.0.4"
+  },
+  "peerDependencies": {
+    "jose": "^4",
+    "zod": "^3"
+  },
+  "peerDependenciesMeta": {
+    "zod": {
+      "optional": true
+    }
+  },
+  "dependencies": {
+    "module-error": "^1.0.2"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
