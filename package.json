@@ -47,7 +47,7 @@
     "vitest": "^2.0.4"
   },
   "peerDependencies": {
-    "jose": "^4",
+    "jose": "^5",
     "zod": "^3"
   },
   "peerDependenciesMeta": {
