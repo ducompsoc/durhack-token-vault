@@ -53,7 +53,7 @@ export class EdDSATokenAuthority extends TokenAuthority {
     ...options
   }: TokenAuthorityOptions & { publicKeyFilePath: string; privateKeyFilePath: string }) {
     console.debug("Generating key pair...")
-    const { publicKey, privateKey } = await generateKeyPair<KeyObject>("Ed25519")
+    const { publicKey, privateKey } = await generateKeyPair<KeyObject>("EdDSA", { crv: "Ed25519" })
     console.debug("Generated key pair.")
     console.debug("Writing key pair to filesystem...")
 
