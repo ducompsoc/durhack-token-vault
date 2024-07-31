@@ -28,12 +28,12 @@
   },
   "scripts": {
     "build": "tsup",
-    "prepublishOnly": "npm run build",
+    "prepublishOnly": "pnpm build",
     "type-check": "tsc --noEmit",
     "check": "biome check .",
     "check:fix": "biome check --write .",
     "test": "vitest run --silent",
-    "prebuild": "npm run type-check"
+    "prebuild": "pnpm run type-check"
   },
   "keywords": [],
   "author": "DU Computing Society",
