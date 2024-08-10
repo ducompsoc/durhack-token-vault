@@ -75,9 +75,9 @@ export class TokenVault<TUser> {
   }
 
   public async getUserAndScopeClaims(payload: JWTPayload): Promise<{ user: TUser; scope: string[] }> {
-    const { user_id, scope } = payload
+    const { userId, scope } = payload
 
-    if (typeof user_id !== "string") {
+    if (typeof userId !== "string") {
       throw new TokenError("Invalid user ID", {
         code: "ERR_TOKEN_USER_ID_INVALID"
       })
@@ -89,7 +89,7 @@ export class TokenVault<TUser> {
       })
     }
 
-    const user = await this.findUniqueUser(user_id)
+    const user = await this.findUniqueUser(userId)
     if (user == null)
       throw new ModuleError("User not found.", {
         code: "ERR_USER_NOT_FOUND",
